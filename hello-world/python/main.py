@@ -3,10 +3,6 @@
 from bcc import BPF
 
 BPF_PROGRAM = """
-#include <uapi/linux/ptrace.h>
-#include <linux/sched.h>
-#include <linux/fs.h>
-
 int on_syscall_execve(void* ctx) {
   bpf_trace_printk("Hello world by execve call.\\n");
   return 0;
